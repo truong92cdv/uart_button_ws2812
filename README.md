@@ -56,7 +56,37 @@ Xem code [ở đây](verilog/)
 - Kết nối tín hiệu ***reset_n*** của **top_led_controller** với ***peripheral_aresetn*** của **Processor System Reset**.
 - Regenerate Layout để sắp xếp lại Design -> Validate Design bảo đảm không có lỗi.
 - Right click vào design -> Create HDL Wrapper.. Sau đó, right click Wrapper -> Set as Top.
+- Thêm [file constraint](pins.xdc) có nội dung:
+  
+```
+  # Buttons
+set_property PACKAGE_PIN F7 [get_ports {btn_in[0]}]
+set_property PACKAGE_PIN F8 [get_ports {btn_in[1]}]
+set_property PACKAGE_PIN D6 [get_ports {btn_in[2]}]
+set_property PACKAGE_PIN D7 [get_ports {btn_in[3]}]
+set_property IOSTANDARD LVCMOS33 [get_ports {btn_in[*]}]
+set_property PULLUP true [get_ports {btn_in[*]}]
+
+# WS2812 data output
+set_property PACKAGE_PIN E5 [get_ports {led_data}]
+set_property IOSTANDARD LVCMOS33 [get_ports {led_data}]
+```
+
 - Generate Bitstream.
 - File -> Export -> Export Hardware -> Include Bitstream -> tạo file platform .xsa cho Vitis.
 
 ## 3. Vitis
+- Từ phần mềm Vivado -> Tools -> Launch Vitiss IDE.
+- Set Workspace.
+- Create Platform Component -> chọn file .xsa vừa tạo. Để mặc định cấu hình:
+  + OS: standalone
+  + Processor: psu_cortexa53_0
+  + Arch: 64-bit
+- Build Platform.
+- Create Empty Embedded Application, chọn platform vừa tạo.
+- Add src file gồm 4 file: [main.c](vitis_app/main.c), [led_control.h](vitis_app/led_control.h), [led_menu.c](vitis_app/led_menu.c), [gpio_control.c](vitis_app/gpio_control.c).
+- Build Application.
+- Cắm ZuBoard, kết nối ZuBoard với PC bằng dây MicoUSB. Nhấn button ON/OFF trên ZuBoard để khởi động Board, đảm bảo Board đang ở boot mode JTAG (check 4 Switch đều ON).
+- Tab Vitis -> Serial Monitor -> chọn cổng COM -> set baud rate 11500 để mở cửa sổ Terminal Console.
+- Run Application nạp code vào ZuBoard
+- Xem thành quả.
