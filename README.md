@@ -8,7 +8,7 @@
  
 [Video Demo - Youtube](https://youtu.be/NjMW7L0Sqqs)
 
-Chuẩn bị Board (ZuBoard 1CG)
+Chuẩn bị Lab (ZuBoard 1CG - 4 Buttons - Module WS2812)
 ![Demo](images/lab_2.jpg)
 
 Console:
