@@ -8,7 +8,7 @@
  
 [0. Video Demo](https://youtu.be/NjMW7L0Sqqs)
 
-[Demo](images/lab_2.jpg)
+![Demo](images/lab_2.jpg)
 
 ## 1. RTL Design
 Code verilog gồm 3 module: 
