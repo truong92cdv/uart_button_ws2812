@@ -19,3 +19,4 @@ Code verilog gồm 3 module:
 - [**ws2812_driver.v**](verilog/ws2812_driver.v): tạo tín hiệu xuất ra chân led của NeoPixel 8 RGB Led WS2812.
 - [**pattern_controller**](verilog/pattern_controller.v): nhận các tín hiệu **type** (kiểu chớp đèn), **color** (màu đèn), **speed** (tốc độ chớp) từ Processor, và xuất hiện tín hiệu điều khiển đến **ws2812_driver.v**.
 - [**top_led_controller.v**](verilog/top_led_controller.v): module top kết nối 2 module con phía trên.
+Xem code [ở đây](verilog/)
