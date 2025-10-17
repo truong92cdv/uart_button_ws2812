@@ -4,9 +4,9 @@
 
 Đề bài: [Assignment MIO-EIO](Assigment_MIO-EIO.pdf) - Thầy Nguyễn Văn Hải - FPT Jetking
 
-## 0. Video Demo
+## 0. Demo
  
-[0. Video Demo](https://youtu.be/NjMW7L0Sqqs)
+[Video Demo](https://youtu.be/NjMW7L0Sqqs)
 
 ![Demo](images/lab_2.jpg)
 
