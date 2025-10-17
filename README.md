@@ -8,7 +8,7 @@
  
 [Video Demo - Youtube](https://youtu.be/NjMW7L0Sqqs)
 
-Chuẩn bị Lab (ZuBoard 1CG - 4 Buttons - Module WS2812)
+Chuẩn bị Lab (ZuBoard 1CG - 4 Buttons - Module WS2812). Đảm bảo nối dây theo file [constraint](pins.xdc).
 ![Demo](images/lab_2.jpg)
 
 Console:
