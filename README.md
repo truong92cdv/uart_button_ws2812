@@ -4,10 +4,7 @@
 
 Đề bài: [Assignment MIO-EIO](Assigment_MIO-EIO.pdf) - Thầy Nguyễn Văn Hải - FPT Jetking
 
-## Video Demo
-
-[Video Demo](https://youtu.be/NjMW7L0Sqqs)
-
+## [Video Demo](https://youtu.be/NjMW7L0Sqqs)
 
 ## RTL Design
 - Đầu tiên, ta thiết kế
