@@ -6,7 +6,7 @@
 
 ## 0. Demo
  
-[Video Demo](https://youtu.be/NjMW7L0Sqqs)
+![Video Demo](https://youtu.be/NjMW7L0Sqqs)
 
 ![Demo](images/lab_2.jpg)
 
