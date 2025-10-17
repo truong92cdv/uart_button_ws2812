@@ -6,10 +6,12 @@
 
 ## 0. Demo
  
-![Video Demo](https://youtu.be/NjMW7L0Sqqs)
+[Video Demo - Youtube](https://youtu.be/NjMW7L0Sqqs)
 
+Chuẩn bị Board
 ![Demo](images/lab_2.jpg)
 
+Console:
 ![Console](images/console.png)
 
 ## 1. RTL Design
