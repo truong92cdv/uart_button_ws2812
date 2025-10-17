@@ -10,7 +10,7 @@
 
 ![Demo](images/lab_2.jpg)
 
-![Console](images/console.jpg)
+![Console](images/console.png)
 
 ## 1. RTL Design
 Code verilog gồm 3 module: 
