@@ -89,6 +89,6 @@ set_property IOSTANDARD LVCMOS33 [get_ports {led_data}]
 - Add src file gồm 4 file: [main.c](vitis_app/main.c), [led_control.h](vitis_app/led_control.h), [led_menu.c](vitis_app/led_menu.c), [gpio_control.c](vitis_app/gpio_control.c).
 - Build Application.
 - Cắm ZuBoard, kết nối ZuBoard với PC bằng dây MicoUSB. Nhấn button ON/OFF trên ZuBoard để khởi động Board, đảm bảo Board đang ở boot mode JTAG (check 4 Switch đều ON).
-- Tab Vitis -> Serial Monitor -> chọn cổng COM -> set baud rate 11500 để mở cửa sổ Terminal Console.
+- Tab Vitis -> Serial Monitor -> chọn cổng COM -> set baud rate 115200 để mở cửa sổ Terminal Console.
 - Run Application nạp code vào ZuBoard
 - Xem thành quả.
