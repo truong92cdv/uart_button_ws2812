@@ -23,20 +23,40 @@ Code verilog gồm 3 module:
 Xem code [ở đây](verilog/)
 
 ## 2. Block Design on Vivado
+
+![Block Design](images/diagram.png)
+
 - Mở Vivado (tôi dùng Vivado và Vitis version 2024.2.1).
 - Tạo project mới, chọn board **ZuBoard 1CG**.
 - Add or create design sources -> add 3 file verilog đã chuẩn bị ở phần 1.
 - Vào IP Integrator -> Create Block Design.
+  
 - Add IP **Zynq UltraScale+ MPSoC**.
 - Run Block Automation -> Apply Board Preset.
 - Double click vào IP **Zynq UltraScale+ MPSoC**:
   + phần PS-PL Configuration -> PS-PL Interface -> Master Interface -> disable AXI HPM1 FPD, chỉ enable AXI HPM0 FPD.
   + phần I/O Configuration -> Low Speed -> I/O Peripherals -> đảm bảo UART 0 được enable (thông thường UART 0 được enable mặc định).
+    
 - Add IP **AXI GPIO** thứ 1, đổi tên thành **axi_gpio_ctrl**, dùng để giao tiếp giữa Processor phía PS và module **top_led_controller** phía PL.
-- Double click vào IP **axi_gpio_ctrl** -> tab IP Configuration, set ***All Output*** và **GPIO Width** là 8 (2 bit type, 3 bit color, 3 bit speed).
+- Double click vào IP **axi_gpio_ctrl** -> tab IP Configuration, set ***All Output*** và ***GPIO Width*** là 8 (2 bit type, 3 bit color, 3 bit speed).
+  
 - Add 3 IP **Slice** để chia 8 bit của **axi_gpio_ctrl** ra thành 3 tín hiệu riêng biệt ***type***, ***color***, ***speed***.
   + Double click IP **Slice** thứ 1, set **Din Width** = 8, **Din From** = 1, **Din Down To** = 0, **Din Width** = 2 (cho tín hiệu **type**).
   + Double click IP **Slice** thứ 2, set **Din Width** = 8, **Din From** = 4, **Din Down To** = 2, **Din Width** = 3 (cho tín hiệu **color**).
   + Double click IP **Slice** thứ 3, set **Din Width** = 8, **Din From** = 7, **Din Down To** = 5, **Din Width** = 3 (cho tín hiệu **speed**).
  
-- 
+- Add module **top_led_controller**, kết nối đầu ra của 3 IP **Slice** lần lượt với 3 tín hiệu **type**, **color**, **speed** của module **top_led_controller**.
+
+- Add IP **AXI GPIO** thứ 2, đổi tên thành **axi_gpio_btn**.
+- Double click vào IP **axi_gpio_btn** -> tab IP Configuration, set ***All Input*** và ***GPIO Width*** là 4 (4 button).
+
+- Make External để tạo port cho tín hiệu ***led_data*** (thuộc **top_led_controller**) và tín hiệu ***btn_in*** (thuộc **axi_gpio_btn**).
+
+- Run Connection Automation để Vivado tạo AXI Interconnect và Processor System Reset.
+- Kết nối tín hiệu ***reset_n*** của **top_led_controller** với ***peripheral_aresetn*** của **Processor System Reset**.
+- Regenerate Layout để sắp xếp lại Design -> Validate Design bảo đảm không có lỗi.
+- Right click vào design -> Create HDL Wrapper.. Sau đó, right click Wrapper -> Set as Top.
+- Generate Bitstream.
+- File -> Export -> Export Hardware -> Include Bitstream -> tạo file platform .xsa cho Vitis.
+
+## 3. Vitis
