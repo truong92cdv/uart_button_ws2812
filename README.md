@@ -33,8 +33,8 @@ Xem code [ở đây](verilog/)
   + phần PS-PL Configuration -> PS-PL Interface -> Master Interface -> disable AXI HPM1 FPD, chỉ enable AXI HPM0 FPD.
   + phần I/O Configuration -> Low Speed -> I/O Peripherals -> đảm bảo UART 0 được enable (thông thường UART 0 được enable mặc định).
 - Add IP **AXI GPIO** thứ 1, đổi tên thành **axi_gpio_ctrl**, dùng để giao tiếp giữa Processor phía PS và module **top_led_controller** phía PL.
-- Double click vào IP **axi_gpio_ctrl** -> tab IP Configuration, set ***All Output*** và ***GPIO Width** là 8 (2 bit type, 3 bit color, 3 bit speed).
-- Add 3 IP **Slice** để chia 8 bit của **axi_gpio_ctrl** ra thành 3 tín hiệu riêng biệt ***type**, ***color***, ***speed***.
+- Double click vào IP **axi_gpio_ctrl** -> tab IP Configuration, set ***All Output*** và **GPIO Width** là 8 (2 bit type, 3 bit color, 3 bit speed).
+- Add 3 IP **Slice** để chia 8 bit của **axi_gpio_ctrl** ra thành 3 tín hiệu riêng biệt ***type***, ***color***, ***speed***.
   + Double click IP **Slice** thứ 1, set **Din Width** = 8, **Din From** = 1, **Din Down To** = 0, **Din Width** = 2 (cho tín hiệu **type**).
   + Double click IP **Slice** thứ 2, set **Din Width** = 8, **Din From** = 4, **Din Down To** = 2, **Din Width** = 3 (cho tín hiệu **color**).
   + Double click IP **Slice** thứ 3, set **Din Width** = 8, **Din From** = 7, **Din Down To** = 5, **Din Width** = 3 (cho tín hiệu **speed**).
