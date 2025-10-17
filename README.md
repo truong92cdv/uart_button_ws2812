@@ -10,6 +10,8 @@
 
 ![Demo](images/lab_2.jpg)
 
+![Console](images/console.jpg)
+
 ## 1. RTL Design
 Code verilog gồm 3 module: 
 - **ws2812_driver.v** tạo tín hiệu xuất ra chân led của NeoPixel 8 RGB Led WS2812.
