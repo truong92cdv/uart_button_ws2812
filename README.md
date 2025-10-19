@@ -78,7 +78,7 @@ set_property IOSTANDARD LVCMOS33 [get_ports {led_data}]
 - File -> Export -> Export Hardware -> Include Bitstream -> tạo file platform .xsa cho Vitis.
 
 ## 3. Vitis
-- Từ phần mềm Vivado -> Tools -> Launch Vitiss IDE.
+- Từ phần mềm Vivado -> Tools -> Launch Vitis IDE.
 - Set Workspace.
 - Create Platform Component -> chọn file .xsa vừa tạo. Để mặc định cấu hình:
   + OS: standalone
