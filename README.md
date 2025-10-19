@@ -95,7 +95,7 @@ set_property IOSTANDARD LVCMOS33 [get_ports {led_data}]
 - Run Block Automation -> Apply Board Preset.
 - Double click vào IP **Zynq UltraScale+ MPSoC**:
   + phần PS-PL Configuration -> PS-PL Interface -> Master Interface -> disable AXI HPM0 FPD và AXI HPM1 FPD.
-  + phần I/O Configuration -> Low Speed -> I/O Peripherals -> GPIO -> enable GPIO EMIO với 12 chân (**emio_gpio[7:0]** dành cho output ***type***, ***color***, ***speed***, **emio_gpio[11:8]** dành cho input 4 buttons).
+  + phần I/O Configuration -> Low Speed -> I/O Peripherals -> GPIO -> enable GPIO EMIO với 12 chân (**emio_gpio[7:0]** dành cho output ***type***, ***color***, ***speed***; **emio_gpio[11:8]** dành cho input 4 buttons).
      
 - Add 3 IP **Slice** lần lượt đổi tên thành **slice_type**, **slice_color**, **slice_speed**.
   + Double click IP **slice_type**, set **Din Width** = 12, **Din From** = 1, **Din Down To** = 0, **Dout Width** = 2.
