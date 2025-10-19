@@ -31,7 +31,7 @@ Phần tiếp theo có 2 cách làm:
 ## 2. Block Design on Vivado
 ### 2.1. Cách 1: Dùng 2 AXI Interface
 
-![Block Design](images/diagram.png)
+![Block Design](images/diagram1_AXI.png)
 
 - Mở Vivado (tôi dùng Vivado và Vitis version 2024.2.1).
 - Tạo project mới, chọn board **ZuBoard 1CG**.
@@ -47,10 +47,10 @@ Phần tiếp theo có 2 cách làm:
 - Add IP **AXI GPIO** thứ 1, đổi tên thành **axi_gpio_ctrl**, dùng để giao tiếp giữa Processor phía PS và module **top_led_controller** phía PL.
 - Double click vào IP **axi_gpio_ctrl** -> tab IP Configuration, set ***All Output*** và ***GPIO Width*** là 8 (2 bit type, 3 bit color, 3 bit speed).
   
-- Add 3 IP **Slice** để chia 8 bit của **axi_gpio_ctrl** ra thành 3 tín hiệu riêng biệt ***type***, ***color***, ***speed***.
-  + Double click IP **Slice** thứ 1, set **Din Width** = 8, **Din From** = 1, **Din Down To** = 0, **Dout Width** = 2 (cho tín hiệu **type**).
-  + Double click IP **Slice** thứ 2, set **Din Width** = 8, **Din From** = 4, **Din Down To** = 2, **Dout Width** = 3 (cho tín hiệu **color**).
-  + Double click IP **Slice** thứ 3, set **Din Width** = 8, **Din From** = 7, **Din Down To** = 5, **Dout Width** = 3 (cho tín hiệu **speed**).
+- Add 3 IP **Slice** để chia 8 bit của **axi_gpio_ctrl** ra thành 3 tín hiệu riêng biệt ***type***, ***color***, ***speed***. Đổi tên lần lượt thành **slice_type**, **slice_color**, **slice_speed**.
+  + Double click IP **slice_type**, set **Din Width** = 8, **Din From** = 1, **Din Down To** = 0, **Dout Width** = 2.
+  + Double click IP **slice_color**, set **Din Width** = 8, **Din From** = 4, **Din Down To** = 2, **Dout Width** = 3.
+  + Double click IP **slice_speed**, set **Din Width** = 8, **Din From** = 7, **Din Down To** = 5, **Dout Width** = 3.
  
 - Add module **top_led_controller**, kết nối đầu ra của 3 IP **Slice** lần lượt với 3 tín hiệu **type**, **color**, **speed** của module **top_led_controller**.
 
@@ -98,9 +98,9 @@ set_property IOSTANDARD LVCMOS33 [get_ports {led_data}]
   + phần I/O Configuration -> Low Speed -> I/O Peripherals -> GPIO -> enable GPIO EMIO với 12 chân (**emio_gpio[7:0]** dành cho output ***type***, ***color***, ***speed***, **emio_gpio[11:8]** dành cho input 4 buttons).
      
 - Add 3 IP **Slice** lần lượt đổi tên thành **slice_type**, **slice_color**, **slice_speed**.
-  + Double click IP **slice_type**, set **Din Width** = 12, **Din From** = 1, **Din Down To** = 0, **Dout Width** = 2 (cho tín hiệu **type**).
-  + Double click IP **slice_color**, set **Din Width** = 12, **Din From** = 4, **Din Down To** = 2, **Dout Width** = 3 (cho tín hiệu **color**).
-  + Double click IP **slice_speed**, set **Din Width** = 12, **Din From** = 7, **Din Down To** = 5, **Dout Width** = 3 (cho tín hiệu **speed**).
+  + Double click IP **slice_type**, set **Din Width** = 12, **Din From** = 1, **Din Down To** = 0, **Dout Width** = 2.
+  + Double click IP **slice_color**, set **Din Width** = 12, **Din From** = 4, **Din Down To** = 2, **Dout Width** = 3.
+  + Double click IP **slice_speed**, set **Din Width** = 12, **Din From** = 7, **Din Down To** = 5, **Dout Width** = 3.
  
 - Add module **top_led_controller**, kết nối đầu ra của 3 IP **Slice** lần lượt với 3 tín hiệu **type**, **color**, **speed** của module **top_led_controller**.
 - Kết nối **emio_gpio_o[11:0]** của **Zynq MPSoc** với đầu vào Din[11:0] của 3 **slice**.
