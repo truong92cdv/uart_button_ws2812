@@ -43,9 +43,9 @@ Xem code [ở đây](verilog/)
 - Double click vào IP **axi_gpio_ctrl** -> tab IP Configuration, set ***All Output*** và ***GPIO Width*** là 8 (2 bit type, 3 bit color, 3 bit speed).
   
 - Add 3 IP **Slice** để chia 8 bit của **axi_gpio_ctrl** ra thành 3 tín hiệu riêng biệt ***type***, ***color***, ***speed***.
-  + Double click IP **Slice** thứ 1, set **Din Width** = 8, **Dout From** = 1, **Dout Down To** = 0, **Dout Width** = 2 (cho tín hiệu **type**).
-  + Double click IP **Slice** thứ 2, set **Din Width** = 8, **Dout From** = 4, **Dout Down To** = 2, **Dout Width** = 3 (cho tín hiệu **color**).
-  + Double click IP **Slice** thứ 3, set **Din Width** = 8, **Dout From** = 7, **Dout Down To** = 5, **Dout Width** = 3 (cho tín hiệu **speed**).
+  + Double click IP **Slice** thứ 1, set **Din Width** = 8, **Din From** = 1, **Din Down To** = 0, **Dout Width** = 2 (cho tín hiệu **type**).
+  + Double click IP **Slice** thứ 2, set **Din Width** = 8, **Din From** = 4, **Din Down To** = 2, **Dout Width** = 3 (cho tín hiệu **color**).
+  + Double click IP **Slice** thứ 3, set **Din Width** = 8, **Din From** = 7, **Din Down To** = 5, **Dout Width** = 3 (cho tín hiệu **speed**).
  
 - Add module **top_led_controller**, kết nối đầu ra của 3 IP **Slice** lần lượt với 3 tín hiệu **type**, **color**, **speed** của module **top_led_controller**.
 
