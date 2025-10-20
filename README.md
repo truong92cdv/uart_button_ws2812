@@ -118,6 +118,7 @@ set_property IOSTANDARD LVCMOS33 [get_ports {led_data}]
   + Create vector: from 3 to 0.
     
 - Kết nối port **btn_in[3:0]** với đầu vào **In1[3:0]** của IP **concat**.
+- Kết nối đầu ra **dout[11:0] của **concat** với chân **emio_gpio_i[11:0]** của **Zyn MPSoc**.
 - Make External để tạo port cho tín hiệu ***led_data*** (thuộc **top_led_controller**).
 - Kết nối tín hiệu ***clk*** và ***reset_n*** của **top_led_controller** với **Zynq MPSoc**.
 - Regenerate Layout để sắp xếp lại Design -> Validate Design bảo đảm không có lỗi.
